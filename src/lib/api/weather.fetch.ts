@@ -6,12 +6,11 @@ function requireEnv(key: string): string {
     return value;
 }
 
-const BASE_URL = requireEnv("OWM_BASE_URL");
-const API_KEY = requireEnv("OWM_API_KEY");
-const DEFAULT_CITY = requireEnv("OWM_CITY");
-
-
 export async function weatherFetch(city?: string): Promise<OWMResponse> {
+    const BASE_URL = requireEnv("OWM_BASE_URL");
+    const API_KEY = requireEnv("OWM_API_KEY");
+    const DEFAULT_CITY = requireEnv("OWM_CITY");
+
     const url = new URL(`${BASE_URL}/weather`);
     url.searchParams.set("q", city ?? DEFAULT_CITY);
     url.searchParams.set("appid", API_KEY);
