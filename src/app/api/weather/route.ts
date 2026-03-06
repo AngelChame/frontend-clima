@@ -1,9 +1,6 @@
 // app/api/weather/route.ts
 // Route Handler de Next.js — proxy interno entre el cliente y OpenWeatherMap.
-// Equivalente a las rutas /api/auth/* del proyecto RedFlof.
-//
-// Flujo:
-//   Navegador → GET /api/weather → (este handler) → weatherFetch() → OWM → JSON mapeado
+
 
 import { NextRequest, NextResponse } from "next/server";
 import { weatherFetch } from "@/lib/api/weather.fetch";
@@ -16,9 +13,9 @@ export async function GET(request: NextRequest) {
     try {
         const data = await weatherFetch(city);
 
-        // Convertir velocidad de viento m/s → km/h
+        // Convertir velocidad de viento m/s a km/h
         const windKmh = (data.wind.speed * 3.6).toFixed(1);
-        // Convertir visibilidad m → km
+        // Convertir visibilidad m a km
         const visKm = (data.visibility / 1000).toFixed(1);
 
         const response: TelemetryApiResponse = {

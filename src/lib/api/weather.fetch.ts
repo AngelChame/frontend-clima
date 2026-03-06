@@ -10,10 +10,7 @@ const BASE_URL = requireEnv("OWM_BASE_URL");
 const API_KEY = requireEnv("OWM_API_KEY");
 const DEFAULT_CITY = requireEnv("OWM_CITY");
 
-/**
- * Llama al endpoint /weather de OpenWeatherMap.
- * @param city  Ciudad a consultar. Si no se pasa, usa OWM_CITY del .env.local.
- */
+
 export async function weatherFetch(city?: string): Promise<OWMResponse> {
     const url = new URL(`${BASE_URL}/weather`);
     url.searchParams.set("q", city ?? DEFAULT_CITY);

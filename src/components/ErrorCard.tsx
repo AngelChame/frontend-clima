@@ -14,7 +14,6 @@ export default function ErrorCard({
             className="w-full rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm"
         >
             <div className="flex items-start gap-4">
-                {/* Warning icon */}
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-100">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +32,6 @@ export default function ErrorCard({
                     </svg>
                 </div>
 
-                {/* Content */}
                 <div className="flex-1 min-w-0">
                     <h3 className="text-base font-semibold text-red-800">
                         Fallo en la conexión SOA
@@ -45,14 +43,12 @@ export default function ErrorCard({
                     </p>
                 </div>
 
-                {/* Status badge */}
                 <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700 border border-red-200">
                     <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                     Desconectado
                 </span>
             </div>
 
-            {/* Optional retry button */}
             {onRetry && (
                 <div className="mt-5 flex justify-end">
                     <button
